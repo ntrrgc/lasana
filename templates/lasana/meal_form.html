@@ -1,0 +1,14 @@
+{% extends "lasana/base.html" %}
+
+{% block content %}
+<form enctype="multipart/form-data" action="" method="POST">
+  {% for field in form %}
+  <div class="field">
+    <div class="cell">{{ field.label_tag }}</div>
+    <div class="cell">{{ field }}{{ field.errors }}</div>
+  </div>
+  {% endfor %}
+  {% csrf_token %}
+  <input type="submit" value="Put in the fridge"/>
+</form>
+{% endblock %}

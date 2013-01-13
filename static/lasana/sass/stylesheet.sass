@@ -1,0 +1,64 @@
+@import url(http://fonts.googleapis.com/css?family=Donegal+One)
+
+$body_font: 'Donegal One', serif
+$content_width: 600px
+$content_border_color: #ff912f
+
+body
+  background: #fff8da
+  font-family: $body_font
+  font-size: 18px
+
+h1, #miau
+  text-align: center
+
+#content
+  border: 5px dotted $content_border_color
+  width: $content_width
+  margin-left: auto
+  margin-right: auto
+  padding:  30px
+
+form
+  width: 100%
+  display: table
+  border-collapse: separate
+  border-spacing: 2px
+  border-top: 1px solid lightgray
+  border-left: 1px solid lightgray
+  border-right: 1px solid black
+  border-bottom: 1px solid black
+
+form > .field
+  display: table-row
+
+form > .field > .cell
+  display: table-cell
+  border-top: 1px solid black
+  border-left: 1px solid black
+  border-right: 1px solid lightgray
+  border-bottom: 1px solid lightgray
+  padding: 10px 10px
+  text-align: left
+
+#lasagna_url_field
+  box-sizing: border-box
+  width: 100%
+  border: 1px solid $content_border_color
+  padding: 3px
+  font-family: $body_font
+  font-size: 36px
+
+#copyright_footer
+  padding-top: 50px
+  width: $content_width
+  margin: 0 auto
+
+hr
+  width: $content_width
+  border: 0
+  border-top: 2px solid $content_border_color
+
+#copyright_footer_note
+  font-size: 70%
+  text-align: center

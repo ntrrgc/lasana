@@ -1,0 +1,11 @@
+{% extends "lasana/base.html" %}
+
+{% block content %}
+<p>Share this lasagna:</p>
+<input id="lasagna_url_field" type="text" readonly value="{{ meal_serve_absolute_url }}"/>
+<script>
+  <!-- Select URL -->
+  document.getElementById("lasagna_url_field").select()
+</script>
+<p><a href="{% url meal-create %}">Store more</a></p>
+{% endblock %}

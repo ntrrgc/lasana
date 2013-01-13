@@ -1,0 +1,21 @@
+{% load staticfiles %}<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}Lasaña{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'lasana/css/stylesheet.css' %}" />
+</head>
+<body>
+  <h1>Lasaña</h1>
+  <div id="content">
+  {% block content %}
+  {% endblock %}
+  </div>
+  <div id="copyright_footer">
+    <hr/>
+    <div id="copyright_footer_note">
+      {% include "lasana/copyright_footer_note.html" %}
+    </div>
+  </div>
+</body>
+</html>
