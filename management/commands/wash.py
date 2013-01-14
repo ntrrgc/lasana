@@ -17,6 +17,6 @@ class Command(BaseCommand):
                 meal_id = meal.id
 
                 meal.delete()
-                self.stdout.write('Thrown away expired meal "%d"\n' % meal_id)
+                self.stdout.write('Thrown away expired meal "%s"\n' % meal_id)
             else:
                 break
