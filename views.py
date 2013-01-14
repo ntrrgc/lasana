@@ -4,6 +4,7 @@ from django.views.generic.base import View, TemplateResponse
 from . models import Meal
 from . forms import MealCreateForm
 from . sendfile import send
+import idn
 
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
@@ -29,6 +30,8 @@ class MealCreateView(FormView):
 
         meal_serve_url = reverse('meal-serve', kwargs={'meal_id': meal.id})
         meal_serve_absolute_url = self.request.build_absolute_uri(meal_serve_url)
+        #Transform URL to IDN Unicode
+        meal_serve_absolute_url = idn.transform_url_to_idn(meal_serve_absolute_url)
 
         return TemplateResponse(self.request, 
                                 "lasana/meal_create_success.html",
