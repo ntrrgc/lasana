@@ -1,4 +1,5 @@
 from django.db.models import Model, CharField, FileField, DateTimeField
+from django.db.models.signals import pre_delete
 
 from django.conf import settings
 
@@ -38,3 +39,10 @@ class Meal(Model):
             return "%s, expired for %s" % (self.file.url, now - self.expiration_time)
         else:
             return "%s, expires in %s" % (self.file.url, self.expiration_time - now)
+
+
+def delete_file(sender, **kwargs):
+    obj = kwargs['instance']
+    obj.file.delete()
+
+pre_delete.connect(delete_file, sender=Meal)
