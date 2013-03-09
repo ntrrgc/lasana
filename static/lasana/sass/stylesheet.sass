@@ -21,27 +21,26 @@ h1, #miau
   margin-right: auto
   padding:  30px
 
-form
+form .fields
   width: 100%
   display: table
-  border-collapse: separate
-  border-spacing: 2px
-  border-top: 1px solid lightgray
-  border-left: 1px solid lightgray
-  border-right: 1px solid black
-  border-bottom: 1px solid black
+  border-collapse: collapse
 
-form > .field
+form .fields > .field
   display: table-row
 
-form > .field > .cell
+form .fields > .field > .cell
   display: table-cell
-  border-top: 1px solid black
-  border-left: 1px solid black
-  border-right: 1px solid lightgray
-  border-bottom: 1px solid lightgray
   padding: 10px 10px
   text-align: left
+  border: 1px dashed #ffd3ac
+
+form input[type="submit"]
+  margin-top: 5px
+  margin-left: 5px
+
+input, select
+  font-family: $body-font
 
 #lasagna_url_field
   box-sizing: border-box
