@@ -11,4 +11,4 @@ class MealCreateForm(Form):
         (180, "3 hours"),
         (60*24, "1 day"),
         (60*24*7, "1 week"),
-    ), initial=30)
+    ), initial=180)
