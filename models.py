@@ -1,5 +1,6 @@
 from django.db.models import Model, CharField, FileField, DateTimeField
 from django.db.models.signals import pre_delete
+from django.utils.translation import ugettext_lazy as _
 
 from django.conf import settings
 
@@ -11,8 +12,8 @@ import random
 class Meal(Model):
     id_length = 4
     id = CharField(max_length=id_length, db_index=True, primary_key=True)
-    file = FileField(upload_to=settings.LASANA_UPLOAD_ROOT)
-    expiration_time = DateTimeField(db_index=True)
+    file = FileField(upload_to=settings.LASANA_UPLOAD_ROOT, verbose_name=_("File"))
+    expiration_time = DateTimeField(db_index=True, verbose_name=_("Expiration time"))
 
     def generate_auto_id(self):
         #Theoretically, we can have up to 46656 meals, but having 10k would be enough to worry

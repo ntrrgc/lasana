@@ -1,4 +1,5 @@
 {% extends "lasana/base.html" %}
+{% load i18n %}
 
 {% block content %}
 <form enctype="multipart/form-data" action="" method="POST">
@@ -11,6 +12,6 @@
     {% endfor %}
   </div>
   {% csrf_token %}
-  <input type="submit" value="Put in the fridge"/>
+  <input type="submit" value="{% trans "Put in the fridge" %}"/>
 </form>
 {% endblock %}

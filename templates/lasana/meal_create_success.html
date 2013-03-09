@@ -1,7 +1,8 @@
 {% extends "lasana/base.html" %}
+{% load i18n %}
 
 {% block content %}
-<p>Share this lasagna:</p>
+<p>{% trans "Share this lasagna" %}:</p>
 <input id="lasagna_url_field" type="text" readonly value="{{ meal_serve_absolute_url }}"/>
 <script>
   /* Select URL */
@@ -13,5 +14,5 @@
 
   window.onload = function() { autofocus(); };
 </script>
-<p><a href="{% url meal-create %}">Store more</a></p>
+<p><a href="{% url meal-create %}">{% trans "Store more" %}</a></p>
 {% endblock %}
