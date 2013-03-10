@@ -10,7 +10,7 @@ class MealAdmin(admin.ModelAdmin):
             allow_tags = True
             verbose_name = _('File')
 
-        return format_html('<a href="{0}">{1}</a>',
+        return format_html(u'<a href="{0}">{1}</a>',
                            self.get_absolute_url(),
                            os.path.basename(self.file.name))
 
