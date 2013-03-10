@@ -14,6 +14,7 @@ class Meal(Model):
     id = CharField(max_length=id_length, db_index=True, primary_key=True)
     file = FileField(upload_to=settings.LASANA_UPLOAD_ROOT, verbose_name=_("File"))
     expiration_time = DateTimeField(db_index=True, verbose_name=_("Expiration time"))
+    verbose_name = _("Meal")
 
     def generate_auto_id(self):
         #Theoretically, we can have up to 46656 meals, but having 10k would be enough to worry
