@@ -1,4 +1,5 @@
-&copy; John Titor 2036
+{% load i18n %}
+&copy; John Titor 2036<br/>
 <span style="color: #737373">
-  Redefine <em>'templates/lasana/copyright_footer_note.html'</em> to edit this note.
+  {% blocktrans with template_path='templates/lasana/copyright_footer_note.html' %}Redefine <em>'{{ template_path }}'</em> to edit this note.{% endblocktrans %}
 </span>
