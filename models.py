@@ -1,4 +1,6 @@
 from django.db.models import Model, CharField, FileField, DateTimeField
+from django.db.models import ForeignKey
+from django.contrib.sites.models import Site
 from django.db.models.signals import pre_delete
 from django.utils.translation import ugettext_lazy as _
 from django.core.urlresolvers import reverse
@@ -21,6 +23,7 @@ class Meal(Model):
     id = CharField(max_length=id_length, db_index=True, primary_key=True)
     file = FileField(upload_to=settings.LASANA_UPLOAD_ROOT, verbose_name=_("File"), storage=MealStorage())
     expiration_time = DateTimeField(db_index=True, verbose_name=_("Expiration time"))
+    node = ForeignKey(Site, default=settings.SITE_ID)
 
     def generate_auto_id(self):
         #Theoretically, we can have up to 46656 meals, but having 10k would be enough to worry

@@ -1,5 +1,7 @@
 from django.views.generic.edit import CreateView, FormView
 from django.views.generic.base import View, TemplateResponse
+from django.contrib.sites.models import get_current_site
+from django.conf import settings
 
 from . models import Meal
 from . forms import MealCreateForm
@@ -54,8 +56,26 @@ class MealServeView(View):
             return self.no_meal()
         else:
             #else, serve the meal
-            file = meal_iter[0].file
-            return send(request, file)
-    
+            return self.serve_meal(request, meal)
+
     def no_meal(self):
         return HttpResponseRedirect(reverse('meal-create'))
+
+    def serve_meal(self, request, meal):
+        # If the user is in master domain, redirect to the appropiate slave domain,
+        # just for consistency.
+        if request.get_host() == settings.MASTER_DOMAIN:
+            return self.redirect(request, meal)
+
+        # Is the file in this node?
+        if meal.node == get_current_site(request):
+            # Yes! Serve it
+            return send(request, meal.file)
+        else:
+            # No! It's in other node, redirect.
+            return self.redirect(request, meal)
+
+    def redirect(self, request, meal):
+        return HttpResponseRedirect(
+                request.META['wsgi.url_scheme'] + '://' + meal.node.domain + 
+                reverse('meal-serve', kwargs={'meal_id': meal.id}))
