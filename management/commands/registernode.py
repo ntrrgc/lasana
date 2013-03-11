@@ -3,7 +3,7 @@ from django.core.management.base import BaseCommand, CommandError
 from django.contrib.sites.models import Site
 from django.core.exceptions import ObjectDoesNotExist
 from django.conf import settings
-from django.db import transaction
+from django.db import connection, transaction
 
 class Command(BaseCommand):
     help = 'Registers this node in the cluster'
@@ -18,6 +18,10 @@ class Command(BaseCommand):
 
     @transaction.commit_on_success
     def handle(self, *args, **options):
+        # Only one node should be registering at a time, acquire a lock
+        cursor = connection.cursor()
+        cursor.execute("lock registernode_mutex;");
+
         # Tries to read the node ID file
         try:
             with open('nodeid', 'r') as f:
