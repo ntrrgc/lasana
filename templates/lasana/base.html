@@ -2,11 +2,12 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>{% block title %}La Saña{% endblock %}</title>
-  <link rel="stylesheet" href="{% static 'lasana/css/stylesheet.css' %}" />
+  <title>{% block title %}{{ lasana_name }}{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'lasana/css/reimu.css' %}" />
 </head>
 <body>
-  <h1>La Saña</h1>
+  <div id="decoration_1"></div>
+  <h1>{{ lasana_name }}</h1>
   <div id="content">
   {% block content %}
   {% endblock %}
