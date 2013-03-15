@@ -72,6 +72,6 @@ msgstr "Comparte esta lasaña"
 msgid "Store more"
 msgstr "Guarda más lasaña"
 
-#: templates/lasana/meal_form.html:15
-msgid "Put in the fridge"
-msgstr "Poner en la nevera"
+#: templates/lasana/meal_form.html:16
+msgid "Put in the oven"
+msgstr "Poner en el horno"
