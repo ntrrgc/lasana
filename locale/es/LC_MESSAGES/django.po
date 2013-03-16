@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: 2\n"
+"Project-Id-Version: 3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-15 22:31+0100\n"
+"POT-Creation-Date: 2013-03-16 00:54+0100\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -64,11 +64,30 @@ msgstr "Plato"
 msgid "Redefine <em>'%(template_path)s'</em> to edit this note."
 msgstr "Redefine <em>'%(template_path)s'</em> para editar esta nota."
 
-#: templates/lasana/meal_create_success.html:5
+#: templates/lasana/introduction_note.html:2
+#, python-format
+msgid "%(lasana_name)s is a temporary file hosting service."
+msgstr "%(lasana_name)s es un servicio de alojamiento temporal de archivos."
+
+#: templates/lasana/introduction_note.html:3
+#, python-format
+msgid ""
+"%(lasana_name)s aims at minimal user intrusion: we don't want you to need "
+"more than one click for uploading or downloading a file."
+msgstr "%(lasana_name)s busca una mínima intrusión con el usuario: no queremos que necesites más de un clic para subir un archivo, ni tampoco para descargarlo."
+
+#: templates/lasana/introduction_note.html:4
+#, python-format
+msgid ""
+"%(lasana_name)s keeps your files private: your files can only be downloaded "
+"by those you send the links."
+msgstr "%(lasana_name)s mantiene la privacidad de tus archivos: cada archivo que subas, sólo podrán verlo aquellas personas con las que compartas el enlace."
+
+#: templates/lasana/meal_create_success.html:6
 msgid "Share this lasagna"
 msgstr "Comparte esta lasaña"
 
-#: templates/lasana/meal_create_success.html:17
+#: templates/lasana/meal_create_success.html:18
 msgid "Store more"
 msgstr "Guarda más lasaña"
 

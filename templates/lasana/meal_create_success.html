@@ -2,17 +2,19 @@
 {% load i18n %}
 
 {% block content %}
-<p id="share_title">{% trans "Share this lasagna" %}:</p>
-<input id="lasagna_url_field" type="text" readonly value="{{ meal_serve_absolute_url }}"/>
-<script>
-  /* Select URL */
-  function autofocus() {
-    var fi = document.getElementById("lasagna_url_field");
-    fi.setSelectionRange(0, fi.value.length);
-    fi.select();
-  }
+<div id="form_container">
+  <p id="share_title">{% trans "Share this lasagna" %}:</p>
+  <input id="lasagna_url_field" type="text" readonly value="{{ meal_serve_absolute_url }}"/>
+  <script>
+    /* Select URL */
+    function autofocus() {
+      var fi = document.getElementById("lasagna_url_field");
+      fi.setSelectionRange(0, fi.value.length);
+      fi.select();
+    }
 
-  window.onload = function() { autofocus(); };
-</script>
-<p id="store_more"><a href="{% url "meal-create" %}">{% trans "Store more" %}</a></p>
+    window.onload = function() { autofocus(); };
+  </script>
+  <p id="store_more"><a href="{% url "meal-create" %}">{% trans "Store more" %}</a></p>
+</div>
 {% endblock %}

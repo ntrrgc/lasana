@@ -6,7 +6,12 @@ body {
   background: #fff8da; }
 
 body, input, select {
-  font-family: "Donegal One", serif; }
+  font-family: "Donegal One", serif; 
+  line-height: 1.25em;
+}
+
+p {
+  line-height: 1.5em; }
 
 input, select {
   font-size: 15px; }
@@ -14,12 +19,21 @@ input, select {
 h1, #miau {
   text-align: center; }
 
-#content {
+#form_container {
   border: 5px dotted #ff912f;
   width: 600px;
   margin-left: auto;
   margin-right: auto;
   padding: 30px; }
+  
+#introduction {
+  border: none;
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px; 
+  margin-bottom: -50px;
+}
 
 form .fields {
   width: 100%;
