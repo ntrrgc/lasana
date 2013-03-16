@@ -80,8 +80,8 @@ msgstr "%(lasana_name)s busca una mínima intrusión con el usuario: no queremos
 #, python-format
 msgid ""
 "%(lasana_name)s keeps your files private: your files can only be downloaded "
-"by those you send the links."
-msgstr "%(lasana_name)s mantiene la privacidad de tus archivos: cada archivo que subas, sólo podrán verlo aquellas personas con las que compartas el enlace."
+"by those who receive the links."
+msgstr "%(lasana_name)s mantiene la privacidad de tus archivos: cada archivo que subas, sólo podrán verlo aquellas personas que reciban el enlace."
 
 #: templates/lasana/meal_create_success.html:6
 msgid "Share this lasagna"
