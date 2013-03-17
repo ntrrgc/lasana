@@ -6,8 +6,10 @@
   <link rel="stylesheet" href="{{ stylesheet }}" />
 </head>
 <body>
-  <h1>{{ lasana_name }}</h1>
-  <div id="set_your_style">
+  <header role="banner">
+    <h1>{{ lasana_name }}</h1>
+  </header>
+  <section id="set_your_style" aria-hidden>
     <span>{% trans "Set your favorite style!" %}</span>
     <ul>
       <li>
@@ -26,16 +28,17 @@
         {% if style != 'dark' %}</a>{% endif %}
       </li>
     </ul>
-  </div>
-  <div id="content">
+  </section>
+  <div id="content" role="main">
   {% block content %}
   {% endblock %}
   </div>
-  <div id="copyright_footer">
-    <hr/>
+  {% block additional_content %}
+  {% endblock %}
+  <footer role="contentinfo">
     <div id="copyright_footer_note">
       {% include "lasana/copyright_footer_note.html" %}
     </div>
-  </div>
+  </footer>
 </body>
 </html>

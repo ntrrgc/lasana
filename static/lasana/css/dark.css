@@ -103,13 +103,10 @@ input[type="text"] {
 #store_more {
   margin-top: 45px; }
 
-#copyright_footer {
-  padding-top: 50px;
+footer {
   width: 600px;
-  margin: 0 auto; }
-
-hr {
-  width: 600px;
+  margin: 0 auto;
+  margin-top: 50px;
   border: 0;
   border-top: 1px solid rgba(255, 255, 186, 0.65); }
 
