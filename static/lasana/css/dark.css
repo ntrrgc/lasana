@@ -1,30 +1,62 @@
 @font-face {
-  font-family: "Donegal One";
-  src: url("../fonts/DonegalOne-Regular.ttf"); }
+  font-family: "Merriweather Sans";
+  src: url("../fonts/MerriweatherSans-Regular.ttf"); }
+
+html {
+  background: url("../img/flower.jpg") left bottom no-repeat fixed, black;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
 
 body {
-  background: #fff8da; }
+  color: white; }
+  
+a {
+  color: rgb(255, 249, 176); }
+  
+a:visited {
+  color: rgb(216, 198, 159); }
+  
+a:active {
+  color: rgb(240, 132, 132); }
+  
 
 body, input, select {
-  font-family: "Donegal One", serif; 
-  color: black;
+  font-family: "Merriweather Sans", sans-serif;
+  font-size: 17px; }
+
+body {
+  text-shadow: -1px -1px 10px black,
+             1px 1px 10px black;
 }
 
 p {
   line-height: 1.5em; }
 
+article p {
+  margin-bottom: 20px; }
+
 input, select {
   font-size: 15px; }
 
 h1, #miau {
-  text-align: center; }
+  text-align: center; 
+  text-shadow: 0 1px 5px white;
+}
 
 #form_container {
-  border: 5px dotted #ff912f;
+  border: 1px solid rgba(238, 255, 186, 0.65);
   width: 600px;
   margin-left: auto;
   margin-right: auto;
-  padding: 30px; }
+  padding: 30px; 
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.16);
+  box-shadow: 0 0 5px rgba(238, 255, 186, 0.65);
+}
   
 #introduction {
   border: none;
@@ -45,12 +77,11 @@ form .fields > .field {
 
 form .fields > .field > .cell {
   display: table-cell;
-  padding: 10px 10px;
-  text-align: left;
-  border: 1px dashed #ffd3ac; }
+  padding: 5px 5px;
+  text-align: left; }
 
 form input[type="submit"] {
-  margin-top: 5px;
+  margin-top: 25px;
   margin-left: 5px; }
 
 input[type="text"] {
@@ -81,10 +112,10 @@ input[type="text"] {
 hr {
   width: 600px;
   border: 0;
-  border-top: 2px solid #ff912f; }
+  border-top: 1px solid rgba(255, 255, 186, 0.65); }
 
 #copyright_footer_note {
-  font-size: 70%;
+  font-size: 75%;
   text-align: center; }
 
 #set_your_style {
@@ -92,7 +123,7 @@ hr {
     margin-right: 0;
     margin-bottom: 20px;
     text-align: center;
-    color: rgb(104, 48, 0);
+    color: rgb(255, 234, 207);
 }
 
 #set_your_style li {
@@ -108,5 +139,5 @@ hr {
 
 #set_your_style li,
 #set_your_style li a {
-    color: rgb(90, 72, 0);
+    color: rgb(255, 249, 176);
 }

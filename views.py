@@ -4,6 +4,7 @@ from django.views.generic.base import View, TemplateResponse
 from . models import Meal
 from . forms import MealCreateForm
 from . sendfile import send
+from . import styles
 import idn
 
 from django.shortcuts import render
@@ -59,3 +60,11 @@ class MealServeView(View):
     
     def no_meal(self):
         return HttpResponseRedirect(reverse('meal-create'))
+
+
+class SetStyleView(View):
+    def get(self, request, *args, **kwargs):
+        styles.set_style(request, request.GET.get('style'))
+
+        redirect_to = request.META.get('HTTP_REFERER') or reverse('meal-create')
+        return HttpResponseRedirect(redirect_to)

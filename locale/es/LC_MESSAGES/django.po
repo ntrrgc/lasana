@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: 3\n"
+"Project-Id-Version: 4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-16 00:54+0100\n"
+"POT-Creation-Date: 2013-03-17 11:45+0100\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -59,6 +59,22 @@ msgstr "Fecha de caducidad"
 msgid "Meal"
 msgstr "Plato"
 
+#: templates/lasana/base.html:11
+msgid "Set your favorite style!"
+msgstr "¡Elige tu estilo preferido!"
+
+#: templates/lasana/base.html:15
+msgid "Original"
+msgstr "Original"
+
+#: templates/lasana/base.html:20
+msgid "Cute"
+msgstr "Mono"
+
+#: templates/lasana/base.html:25
+msgid "Dark"
+msgstr "Oscuro"
+
 #: templates/lasana/copyright_footer_note.html:4
 #, python-format
 msgid "Redefine <em>'%(template_path)s'</em> to edit this note."
@@ -74,14 +90,18 @@ msgstr "%(lasana_name)s es un servicio de alojamiento temporal de archivos."
 msgid ""
 "%(lasana_name)s aims at minimal user intrusion: we don't want you to need "
 "more than one click for uploading or downloading a file."
-msgstr "%(lasana_name)s busca una mínima intrusión con el usuario: no queremos que necesites más de un clic para subir un archivo, ni tampoco para descargarlo."
+msgstr ""
+"%(lasana_name)s busca una mínima intrusión con el usuario: no queremos que "
+"necesites más de un clic para subir un archivo, ni tampoco para descargarlo."
 
 #: templates/lasana/introduction_note.html:4
 #, python-format
 msgid ""
 "%(lasana_name)s keeps your files private: your files can only be downloaded "
 "by those who receive the links."
-msgstr "%(lasana_name)s mantiene la privacidad de tus archivos: cada archivo que subas, sólo podrán verlo aquellas personas que reciban el enlace."
+msgstr ""
+"%(lasana_name)s mantiene la privacidad de tus archivos: cada archivo que "
+"subas, sólo podrán verlo aquellas personas que reciban el enlace."
 
 #: templates/lasana/meal_create_success.html:6
 msgid "Share this lasagna"
