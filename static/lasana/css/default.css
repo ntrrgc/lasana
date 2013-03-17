@@ -1,0 +1,108 @@
+@font-face {
+  font-family: "Donegal One";
+  src: url("../fonts/DonegalOne-Regular.ttf"); }
+
+body {
+  background: #fff8da; }
+
+body, input, select {
+  font-family: "Donegal One", serif; 
+  color: black;
+}
+
+p {
+  line-height: 1.5em; }
+
+input, select {
+  font-size: 15px; }
+
+h1, #miau {
+  text-align: center; }
+
+#form_container {
+  border: 5px dotted #ff912f;
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px; }
+  
+#introduction {
+  border: none;
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px; 
+  margin-bottom: -50px;
+}
+
+form .fields {
+  width: 100%;
+  display: table;
+  border-collapse: collapse; }
+
+form .fields > .field {
+  display: table-row; }
+
+form .fields > .field > .cell {
+  display: table-cell;
+  padding: 10px 10px;
+  text-align: left;
+  border: 1px dashed #ffd3ac; }
+
+form input[type="submit"] {
+  margin-top: 5px;
+  margin-left: 5px; }
+
+input[type="text"] {
+  cursor: text; }
+
+#share_title {
+  font-size: 22px;
+  margin-top: 5px;
+  margin-bottom: 5px; }
+
+#lasagna_url_field {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  width: 100%;
+  border: 1px solid #ff912f;
+  padding: 3px;
+  font-size: 36px; }
+
+#store_more {
+  margin-top: 45px; }
+
+footer {
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 50px;
+  border: 0;
+  border-top: 2px solid #ff912f; }
+
+#copyright_footer_note {
+  font-size: 70%;
+  text-align: center; }
+
+#set_your_style {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 20px;
+    text-align: center;
+    color: rgb(104, 48, 0);
+}
+
+#set_your_style li {
+    display: inline-block;
+    font-style: italic;
+    margin: 0 1px;
+}
+#set_your_style ul {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+#set_your_style li,
+#set_your_style li a {
+    color: rgb(90, 72, 0);
+}

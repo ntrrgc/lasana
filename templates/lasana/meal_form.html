@@ -2,16 +2,26 @@
 {% load i18n %}
 
 {% block content %}
-<form enctype="multipart/form-data" action="" method="POST">
-  <div class="fields">
-    {% for field in form %}
-    <div class="field">
-      <div class="cell">{{ field.label_tag }}</div>
-      <div class="cell">{{ field }}{{ field.errors }}</div>
+<div id="form_container" role="form">
+  <form enctype="multipart/form-data" method="POST">
+    <div class="fields">
+      {% for field in form %}
+      <div class="field">
+        <div class="cell">{{ field.label_tag }}</div>
+        <div class="cell">{{ field }}{{ field.errors }}</div>
+      </div>
+      {% endfor %}
     </div>
-    {% endfor %}
-  </div>
-  {% csrf_token %}
-  <input type="submit" value="{% trans "Put in the fridge" %}"/>
-</form>
+    {% csrf_token %}
+    <input type="submit" value="{% trans "Put in the oven" %}"/>
+  </form>
+</div>
+{% endblock %}
+
+{% block additional_content %}
+<aside role="complemetary" id="introduction_section">
+  <article id="introduction">
+    {% include "lasana/introduction_note.html" %}
+  </article>
+</aside>
 {% endblock %}

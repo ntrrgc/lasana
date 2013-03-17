@@ -1,21 +1,44 @@
-{% load staticfiles %}<!DOCTYPE HTML>
+{% load i18n %}{% load staticfiles %}<!DOCTYPE HTML>
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>{% block title %}La Saña{% endblock %}</title>
-  <link rel="stylesheet" href="{% static 'lasana/css/stylesheet.css' %}" />
+  <title>{% block title %}{{ lasana_name }}{% endblock %}</title>
+  <link rel="stylesheet" href="{{ stylesheet }}" />
 </head>
 <body>
-  <h1>La Saña</h1>
-  <div id="content">
+  <header role="banner">
+    <h1>{{ lasana_name }}</h1>
+  </header>
+  <section id="set_your_style" aria-hidden>
+    <span>{% trans "Set your favorite style!" %}</span>
+    <ul>
+      <li>
+        {% if style != 'default' %}<a href="{% url 'set-style' %}?style=default">{% endif %}
+          {% trans "Original" %}
+        {% if style != 'default' %}</a>{% endif %}
+      </li>
+      <li>
+        {% if style != 'reimu' %}<a href="{% url 'set-style' %}?style=reimu">{% endif %}
+          {% trans "Cute" %}
+        {% if style != 'reimu' %}</a>{% endif %}
+      </li>
+      <li>
+        {% if style != 'dark' %}<a href="{% url 'set-style' %}?style=dark">{% endif %}
+          {% trans "Dark" %}
+        {% if style != 'dark' %}</a>{% endif %}
+      </li>
+    </ul>
+  </section>
+  <div id="content" role="main">
   {% block content %}
   {% endblock %}
   </div>
-  <div id="copyright_footer">
-    <hr/>
+  {% block additional_content %}
+  {% endblock %}
+  <footer role="contentinfo">
     <div id="copyright_footer_note">
       {% include "lasana/copyright_footer_note.html" %}
     </div>
-  </div>
+  </footer>
 </body>
 </html>

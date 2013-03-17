@@ -1,0 +1,126 @@
+@font-face {
+  font-family: "Averia Gruesa Libre";
+  src: url("../fonts/AveriaGruesaLibre-Regular.ttf"); }
+  
+html {
+  background: url("../img/reimu.jpg") right bottom no-repeat fixed, white; 
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+body, input, select {
+  font-family: "Averia Gruesa Libre", serif; 
+  color: black;
+  font-size: 18px;
+}
+
+body {
+  text-shadow: -1px -1px 10px white,
+               1px 1px 10px white,
+               -1px 1px 10px white,
+               1px -1px 10px white; }
+
+article p {
+  line-height: 1.47em;
+  margin-bottom: 32px;
+}
+
+input, select {
+  font-size: 15px; }
+
+h1, #miau {
+  text-align: center; }
+
+#form_container {
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px; 
+  border: 1px solid rgb(255, 194, 211);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 0px 5px white;
+}
+  
+#introduction {
+  border: none;
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px; 
+  margin-bottom: -50px;
+}
+
+form .fields {
+  width: 100%;
+  display: table;
+  border-collapse: collapse; }
+
+form .fields > .field {
+  display: table-row; }
+
+form .fields > .field > .cell {
+  display: table-cell;
+  padding: 5px 5px;
+  text-align: left; }
+
+form input[type="submit"] {
+  margin-top: 20px;
+  margin-left: 5px; }
+
+input[type="text"] {
+  cursor: text; }
+
+#share_title {
+  font-size: 22px;
+  margin-top: 5px;
+  margin-bottom: 5px; }
+
+#lasagna_url_field {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  width: 100%;
+  border: 1px solid #ff912f;
+  padding: 3px;
+  font-size: 36px; }
+
+#store_more {
+  margin-top: 45px; }
+
+footer {
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 50px;
+  border: 0;
+  border-top: 1px solid rgb(255, 194, 211); }
+
+#copyright_footer_note {
+  font-size: 70%;
+  text-align: center; }
+
+#set_your_style {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 20px;
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+
+#set_your_style li {
+    display: inline-block;
+    font-style: italic;
+    margin: 0 1px;
+}
+#set_your_style ul {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+#set_your_style li,
+#set_your_style li a {
+    color: rgb(184, 34, 46);
+}
