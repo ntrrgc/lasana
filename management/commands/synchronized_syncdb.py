@@ -3,6 +3,7 @@ from django.core.management.base import BaseCommand, CommandError
 from django.core.management import execute_from_command_line
 from django.db import connection, transaction
 import subprocess
+from optparse import make_option
 
 class Command(BaseCommand):
     help = 'Acquires a lock in the database (table `syncdb_mutex`) and runs ' \
@@ -15,6 +16,6 @@ class Command(BaseCommand):
         cursor.execute("lock syncdb_mutex;");
         self.stdout.write('Acquired!')
 
-        subprocess.call(["python", "manage.py", "syncdb"] + list(args))
+        subprocess.call(["python", "manage.py", "syncdb", "--noinput"])
 
         self.stdout.write('Releasing syncdb_mutex lock...')
