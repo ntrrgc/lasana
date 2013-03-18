@@ -2,7 +2,7 @@
 {% load i18n %}
 
 {% block content %}
-<div id="form_container" role="form">
+<div id="form_container">
   <form enctype="multipart/form-data" method="POST">
     <div class="fields">
       {% for field in form %}
@@ -19,7 +19,7 @@
 {% endblock %}
 
 {% block additional_content %}
-<aside role="complemetary" id="introduction_section">
+<aside role="complementary" id="introduction_section">
   <article id="introduction">
     {% include "lasana/introduction_note.html" %}
   </article>
