@@ -9,7 +9,9 @@
   <header role="banner">
     <h1>{{ lasana_name }}</h1>
   </header>
+  {% if allow_change_style %}
   {% include "lasana/style_collection.html" %}
+  {% endif %}
   <div id="content" role="main">
   {% block content %}
   {% endblock %}

@@ -7,3 +7,5 @@ def get(key, default):
 LASANA_NAME = get('LASANA_NAME', u'Lasaña')
 
 LASANA_DEFAULT_STYLE = get('LASANA_DEFAULT_STYLE', 'original')
+
+LASANA_ALLOW_CHANGE_STYLE = get('LASANA_ALLOW_CHANGE_STYLE', True)

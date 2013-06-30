@@ -1,5 +1,5 @@
 from django.conf import settings
-from . settings import LASANA_NAME, LASANA_DEFAULT_STYLE
+from . settings import LASANA_NAME, LASANA_ALLOW_CHANGE_STYLE
 from . import styles
 import re
 
@@ -10,7 +10,8 @@ def common(request):
     stylesheet = settings.STATIC_URL + 'lasana/css/%s.css' % style
 
     return {
-        'lasana_name': LASANA_NAME,
-        'style'      : style,
-        'stylesheet' : stylesheet,
+        'lasana_name'        : LASANA_NAME,
+        'style'              : style,
+        'stylesheet'         : stylesheet,
+        'allow_change_style' : LASANA_ALLOW_CHANGE_STYLE
         }

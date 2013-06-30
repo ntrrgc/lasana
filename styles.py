@@ -1,10 +1,10 @@
 import re
 from . settings import LASANA_DEFAULT_STYLE
 
-basic_name = re.compile(r'^[a-zA-Z0-9_]+$')
+basic_name = re.compile(r'^[a-zA-Z0-9_\-]+$')
 
 def is_basic_name(style):
-    # Only allow style names with letters, numbers and underscore
+    # Only allow style names with letters, numbers, underscore and hyphens
     return bool(basic_name.match(style))
 
 def get_style(request):

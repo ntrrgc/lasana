@@ -5,10 +5,12 @@ from . models import Meal
 from . forms import MealCreateForm
 from . sendfile import send
 from . import styles
+from . settings import LASANA_ALLOW_CHANGE_STYLE
 import idn
 
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
+from django.core.exceptions import PermissionDenied
 
 from django.core.urlresolvers import reverse, reverse_lazy
 
@@ -64,6 +66,9 @@ class MealServeView(View):
 
 class SetStyleView(View):
     def get(self, request, *args, **kwargs):
+        if not LASANA_ALLOW_CHANGE_STYLE:
+            raise PermissionDenied
+
         styles.set_style(request, request.GET.get('style'))
 
         redirect_to = request.META.get('HTTP_REFERER') or reverse('meal-create')
