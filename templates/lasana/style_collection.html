@@ -1,0 +1,9 @@
+{% load i18n %}
+<section id="set_your_style" aria-hidden="true">
+  <span>{% trans "Set your favorite style!" %}</span>
+  <ul>
+    {% include "lasana/style.html" with name="Original" %}
+    {% include "lasana/style.html" with name="Cute" %}
+    {% include "lasana/style.html" with name="Dark" %}
+  </ul>
+</section>

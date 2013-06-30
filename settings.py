@@ -5,3 +5,5 @@ def get(key, default):
     return getattr(settings, key, default)
 
 LASANA_NAME = get('LASANA_NAME', u'Lasaña')
+
+LASANA_DEFAULT_STYLE = get('LASANA_DEFAULT_STYLE', 'original')

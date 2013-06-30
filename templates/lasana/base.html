@@ -9,26 +9,7 @@
   <header role="banner">
     <h1>{{ lasana_name }}</h1>
   </header>
-  <section id="set_your_style" aria-hidden="true">
-    <span>{% trans "Set your favorite style!" %}</span>
-    <ul>
-      <li>
-        {% if style != 'default' %}<a href="{% url 'set-style' %}?style=default">{% endif %}
-          {% trans "Original" %}
-        {% if style != 'default' %}</a>{% endif %}
-      </li>
-      <li>
-        {% if style != 'reimu' %}<a href="{% url 'set-style' %}?style=reimu">{% endif %}
-          {% trans "Cute" %}
-        {% if style != 'reimu' %}</a>{% endif %}
-      </li>
-      <li>
-        {% if style != 'dark' %}<a href="{% url 'set-style' %}?style=dark">{% endif %}
-          {% trans "Dark" %}
-        {% if style != 'dark' %}</a>{% endif %}
-      </li>
-    </ul>
-  </section>
+  {% include "lasana/style_collection.html" %}
   <div id="content" role="main">
   {% block content %}
   {% endblock %}
