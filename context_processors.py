@@ -7,8 +7,7 @@ basic_name = re.compile(r'^[a-zA-Z0-9_]+$')
 
 def common(request):
     style = styles.get_style(request)
-    stylesheet = settings.STATIC_URL + 'lasana/css/%s.css' % (style or LASANA_DEFAULT_STYLE)
-    print(stylesheet)
+    stylesheet = settings.STATIC_URL + 'lasana/css/%s.css' % style
 
     return {
         'lasana_name': LASANA_NAME,

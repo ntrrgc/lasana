@@ -1,4 +1,5 @@
 import re
+from . settings import LASANA_DEFAULT_STYLE
 
 basic_name = re.compile(r'^[a-zA-Z0-9_]+$')
 
@@ -13,7 +14,7 @@ def get_style(request):
     if style_from_get and not is_basic_name(style_from_get):
         style_from_get = None
 
-    return style_from_get or style_from_session or 'default'
+    return style_from_get or style_from_session or LASANA_DEFAULT_STYLE
 
 def set_style(request, style):
     if style and is_basic_name(style):
