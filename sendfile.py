@@ -1,11 +1,10 @@
 from django.http import HttpResponse, Http404
-from django.conf import settings
 from django.utils.http import urlquote
 import os
 import re
 import mimetypes
 
-from django.conf import settings
+from . settings import LASANA_USE_X_SENDFILE
 
 #For no-XSendfile approach
 from django.core.servers.basehttp import FileWrapper
@@ -20,7 +19,7 @@ def send(request, file):
     if detected_type is None:
         detected_type = 'application/octet-stream'
 
-    if settings.LASANA_USE_X_SENDFILE:
+    if LASANA_USE_X_SENDFILE:
         response = HttpResponse(content_type=detected_type)
         response['Content-Disposition'] = 'filename=%s' % urlquote(os.path.basename(file.name))
         content_range = request.META.get('HTTP_RANGE')
