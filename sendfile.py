@@ -44,7 +44,7 @@ def send(request, file):
             response['X-Sendfile2'] = "%s %s-%s" % (urlquote(file.path), str(range_begin) if range_begin is not None else "0",
                                                                          str(range_end) if range_end is not None else "")
         elif LASANA_USE_X_SENDFILE == 'nginx':
-            response['X-Accel-Redirect'] = LASANA_NGINX_ACCEL_REDIRECT_BASE_URL + os.path.basename(file.name)
+            response['X-Accel-Redirect'] = (LASANA_NGINX_ACCEL_REDIRECT_BASE_URL + os.path.basename(file.name)).encode('UTF-8')
         else:
             raise RuntimeError('LASANA_USE_X_SENDFILE must be "lighttpd" or "nginx".')
 
