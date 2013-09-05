@@ -4,7 +4,7 @@ import os
 import re
 import mimetypes
 
-from . settings import LASANA_USE_X_SENDFILE
+from . settings import LASANA_USE_X_SENDFILE, LASANA_NGINX_ACCEL_REDIRECT_BASE_URL
 
 #For no-XSendfile approach
 from django.core.servers.basehttp import FileWrapper
@@ -39,8 +39,15 @@ def send(request, file):
                 else:
                     # Throw 416 Range Not Satisfiable
                     return HttpResponse(status=416)
-        response['X-Sendfile2'] = "%s %s-%s" % (urlquote(file.path), str(range_begin) if range_begin is not None else "0",
-                                                                     str(range_end) if range_end is not None else "")
+
+        if LASANA_USE_X_SENDFILE == 'lighttpd':
+            response['X-Sendfile2'] = "%s %s-%s" % (urlquote(file.path), str(range_begin) if range_begin is not None else "0",
+                                                                         str(range_end) if range_end is not None else "")
+        elif LASANA_USE_X_SENDFILE == 'nginx':
+            response['X-Accel-Redirect'] = (LASANA_NGINX_ACCEL_REDIRECT_BASE_URL + os.path.basename(file.name)).encode('UTF-8')
+        else:
+            raise RuntimeError('LASANA_USE_X_SENDFILE must be "lighttpd" or "nginx".')
+
         return response
     else:
         response = HttpResponse(FileWrapper(file), content_type=detected_type)
