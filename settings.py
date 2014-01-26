@@ -15,3 +15,18 @@ LASANA_USE_X_SENDFILE = get('LASANA_USE_X_SENDFILE', False)
 LASANA_UPLOAD_ROOT = get('LASANA_UPLOAD_ROOT', './uploads')
 
 LASANA_NGINX_ACCEL_REDIRECT_BASE_URL = get('LASANA_NGINX_ACCEL_REDIRECT_BASE_URL', '/__uploads/')
+
+# Forbid crawlers to index user content
+LASANA_BLOCK_CRAWLERS = get('LASANA_BLOCK_CRAWLERS', [
+    'Googlebot',
+    'YandexBot',
+    'YandexImages',
+    'AhrefsBot',
+    'Slurp', # Yahoo
+    'msnbot-media',
+    'bingbot',
+    'rogerbot',
+    'finbot',
+    'MJ12bot',
+    'spbot',
+])

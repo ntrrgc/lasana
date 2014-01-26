@@ -6,12 +6,12 @@ from . models import Meal
 from . forms import MealCreateForm
 from . sendfile import send
 from . import styles
-from . settings import LASANA_ALLOW_CHANGE_STYLE
+from . settings import LASANA_ALLOW_CHANGE_STYLE, LASANA_BLOCK_CRAWLERS
 import idn
 
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, \
-        HttpResponseBadRequest
+        HttpResponseBadRequest, HttpResponseForbidden
 from django.core.exceptions import PermissionDenied
 
 from django.core.urlresolvers import reverse, reverse_lazy
@@ -87,7 +87,17 @@ class MealCreateAPIView(FormView):
     
 
 class MealServeView(View):
+    def forbidden_user_agent(self):
+        user_agent = self.request.META['HTTP_USER_AGENT']
+        return any(bot in user_agent
+                   for bot in LASANA_BLOCK_CRAWLERS)
+
     def get(self, request, *args, **kwargs):
+        if self.forbidden_user_agent():
+            response = HttpResponseForbidden()
+            response['X-Robots-Tag'] = 'noindex'
+            return response
+
         #if there is no such meal, redirect to main page
         meal_iter = Meal.objects.filter(id=kwargs['meal_id'])
         if len(meal_iter) != 1:
