@@ -55,6 +55,7 @@ class Meal(Model):
 
 def delete_file(sender, **kwargs):
     obj = kwargs['instance']
-    obj.file.delete()
+    if obj.file.name != "":
+        obj.file.delete()
 
 pre_delete.connect(delete_file, sender=Meal)
