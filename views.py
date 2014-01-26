@@ -49,7 +49,7 @@ class MealCreateView(FormView):
         return TemplateResponse(self.request, 
                                 "lasana/meal_create_success.html",
                                 context={'meal': meal,
-                                         'meal_serve_absolute_url': meal_serve_absolute_url})
+                                         'meal_serve_absolute_url': url})
 
 
 class MealCreateAPIView(FormView):
