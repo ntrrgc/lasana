@@ -1,5 +1,6 @@
 from django.views.generic.edit import CreateView, FormView
 from django.views.generic.base import View, TemplateResponse
+from django.views.decorators.csrf import csrf_exempt
 
 from . models import Meal
 from . forms import MealCreateForm
@@ -9,16 +10,50 @@ from . settings import LASANA_ALLOW_CHANGE_STYLE
 import idn
 
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, \
+        HttpResponseBadRequest
 from django.core.exceptions import PermissionDenied
 
 from django.core.urlresolvers import reverse, reverse_lazy
 
 from datetime import timedelta
 from django.utils import timezone
+import json
+
+
+def process_meal(request, file, expiration_time):
+    meal = Meal(file=file, expiration_time=expiration_time)
+    meal.generate_auto_id()
+    meal.save()
+
+    meal_serve_url = reverse('meal-serve', kwargs={'meal_id': meal.id})
+    meal_serve_absolute_url = request.build_absolute_uri(meal_serve_url)
+    #Transform URL to IDN Unicode
+    meal_serve_absolute_url = idn.transform_url_to_idn(meal_serve_absolute_url)
+
+    return meal, meal_serve_absolute_url
+
 
 class MealCreateView(FormView):
     template_name = "lasana/meal_form.html"
+    form_class = MealCreateForm
+
+    def form_valid(self, form):
+        expires_in = int(form.cleaned_data['expires_in'])
+        file = form.cleaned_data['file']
+
+        expiration_time = timezone.now() + timedelta(minutes=expires_in)
+
+        meal, url = process_meal(self.request, file, expiration_time)
+
+        return TemplateResponse(self.request, 
+                                "lasana/meal_create_success.html",
+                                context={'meal': meal,
+                                         'meal_serve_absolute_url': meal_serve_absolute_url})
+
+
+class MealCreateAPIView(FormView):
+    template_name = "lasana/meal_form_api.html"
     form_class = MealCreateForm
     
     def form_valid(self, form):
@@ -27,19 +62,28 @@ class MealCreateView(FormView):
 
         expiration_time = timezone.now() + timedelta(minutes=expires_in)
 
-        meal = Meal(file=file, expiration_time=expiration_time)
-        meal.generate_auto_id()
-        meal.save()
+        meal, url = process_meal(self.request, file, expiration_time)
 
-        meal_serve_url = reverse('meal-serve', kwargs={'meal_id': meal.id})
-        meal_serve_absolute_url = self.request.build_absolute_uri(meal_serve_url)
-        #Transform URL to IDN Unicode
-        meal_serve_absolute_url = idn.transform_url_to_idn(meal_serve_absolute_url)
+        data = {
+            'meal_id': meal.id,
+            'url': url,
+        }
 
-        return TemplateResponse(self.request, 
-                                "lasana/meal_create_success.html",
-                                context={'meal': meal,
-                                         'meal_serve_absolute_url': meal_serve_absolute_url})
+        return HttpResponse(json.dumps(data), content_type="application/json")
+
+    def form_invalid(self, form):
+        data = {
+            'error': 'Invalid input',
+            # Set to True if client must use a newer version of the API.
+            'deprecated_version': False,
+        }
+
+        return HttpResponseBadRequest(json.dumps(data),
+                                      content_type="application/json")
+
+    @csrf_exempt
+    def dispatch(self, *args, **kwargs):
+        return super(MealCreateAPIView, self).dispatch(*args, **kwargs)
     
 
 class MealServeView(View):
