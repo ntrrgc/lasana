@@ -39,7 +39,7 @@ class ForceHTTPSOnBrowsersMiddleware(object):
             return
   
         user_agent = request.META.get('HTTP_USER_AGENT', '')
-        if is_a_browser(request.META['HTTP_USER_AGENT']):
+        if is_a_browser(user_agent):
             url = request.build_absolute_uri()
             url = re_http.sub('https:', url)
             return HttpResponseRedirect(url)
