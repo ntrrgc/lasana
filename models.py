@@ -15,6 +15,7 @@ class MealStorage(FileSystemStorage):
     def url(self, name):
         return Meal.objects.get(file=name).get_absolute_url()
 
+MEAL_ALPHABET = list(set(string.ascii_uppercase + string.digits) - {'I','1','O','0'})
 
 class Meal(Model):
     id_length = 4
@@ -23,12 +24,12 @@ class Meal(Model):
     expiration_time = DateTimeField(db_index=True, verbose_name=_("Expiration time"))
 
     def generate_auto_id(self):
-        #Theoretically, we can have up to 46656 meals, but having 10k would be enough to worry
+        #Theoretically, we can have up to ~1 million meals, but having 10k would be enough to worry
         if Meal.objects.count() > 10000:
             raise "Too much meals"
 
         while True:
-            random_string = ''.join(random.choice(string.ascii_uppercase + string.digits) for x in range(4))
+            random_string = ''.join(random.choice(MEAL_ALPHABET) for x in range(4))
             if len(Meal.objects.filter(id=random_string)) == 0:
                 self.id = random_string
                 return self.id
