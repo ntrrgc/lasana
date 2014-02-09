@@ -3,7 +3,7 @@ from django.views.generic.base import View, TemplateResponse
 from django.views.decorators.csrf import csrf_exempt
 
 from . models import Meal
-from . forms import MealCreateForm
+from . forms import MealCreateForm, MealCreateFormAPI
 from . sendfile import send
 from . import styles
 from . settings import LASANA_ALLOW_CHANGE_STYLE, LASANA_BLOCK_CRAWLERS
@@ -54,11 +54,14 @@ class MealCreateView(FormView):
 
 class MealCreateAPIView(FormView):
     template_name = "lasana/meal_form_api.html"
-    form_class = MealCreateForm
+    form_class = MealCreateFormAPI
     
     def form_valid(self, form):
         expires_in = int(form.cleaned_data['expires_in'])
         file = form.cleaned_data['file']
+
+        if form.cleaned_data['file_name_override'] != "":
+            file.name = form.cleaned_data['file_name_override']
 
         expiration_time = timezone.now() + timedelta(minutes=expires_in)
 

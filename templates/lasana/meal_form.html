@@ -1,9 +1,10 @@
 {% extends "lasana/base.html" %}
-{% load i18n %}
+{% load staticfiles %}
+{% load i18n %}{% load l10n %}
 
 {% block content %}
-<div id="form_container">
-  <form enctype="multipart/form-data" method="POST">
+<div id="form_container" class="no_ajax">
+  <form enctype="multipart/form-data" method="POST" id="classic_uploader">
     <div class="fields">
       {% for field in form %}
       <div class="field">
@@ -13,9 +14,78 @@
       {% endfor %}
     </div>
     {% csrf_token %}
-    <input type="submit" value="{% trans "Put in the oven" %}"/>
+    <input type="submit" id="submit" value="{% trans "Put in the oven" %}"/>
   </form>
+  <div id="ajax_uploader">
+    <div id="page_select">
+      <div id="select_a_file">{% trans "Select a file" %}</div>
+      <hr/>
+      <div id="or_drag">
+        {% trans "or drop it from the desktop." %}
+        <br/>{% trans "You can also paste images with Ctrl+V." %}
+      </div>
+    </div>
+    <div id="page_confirm" style="display: none">
+      <div id="image_pane">
+      </div>
+      <div class="right_pane">
+        <div class="box_info"><div class="tablehack">
+          <div id="file_name">filename</div>
+          <div class="size_row">
+            <span class="size_label">{% trans "Size" %}: </span>
+            <span id="file_size">3.70 KiB</span>
+          </div>
+        </div></div>
+        <div class="box_subpage"><div class="tablehack">
+          <div id="subpage_confirm">
+            <div class="expires_row">
+              {{ form.expires_in.label_tag }}
+              <select id="ajax_expires_in">
+                {% for key, name in form.fields.expires_in.choices %}
+                <option value="{{ key }}" {% if key == form.expires_in.value %}
+                selected="selected"{% endif %}>{{ name }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="button_bar">
+              <button id="upload_button">{% trans "Put in the oven" %}</button>
+              <button id="confirm_cancel">{% trans "Go back" %}</button>
+            </div>
+          </div>
+          <div id="subpage_progress" style="display: none">
+            <div id="progress_bar">
+              <div id="filled_area"></div>
+            </div>
+            <div id="percent">0 %</div>
+            <div class="button_bar">
+              <button id="cancel_upload">{% trans "Cancel upload" %}</button>
+            </div>
+          </div>
+          <div id="subpage_finished" style="display: none">
+            <div class="share_lasagna">{% trans "Share this lasagna" %}</div>
+            <input id="lasagna_url_field" type="text" readonly value=""/>
+            <div id="store_more" class="button_bar">
+              <button id="store_more_button">{% trans "Store more" %}</button>
+            </div>
+          </div>
+          <div id="subpage_error" style="display: none">
+            <p id="error_explanation">
+              {% trans "There was an error with the upload." %}
+            </p>
+            <div class="button_bar">
+              <button id="retry_button">{% trans "Retry" %}</button>
+            </div>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </div>
 </div>
+<script>
+var localizedNum = "{% localize on %}{{1.2}}{% endlocalize %}";
+var noBrowserImagesError = "{% trans "Due to technical limitations, you can't paste images from this browser." %}";
+</script>
+<script src="{% static 'lasana/js/upload.js' %}"></script>
 {% endblock %}
 
 {% block additional_content %}

@@ -3,7 +3,7 @@
   src: url("../fonts/DonegalOne-Regular.ttf"); }
 
 body {
-  background: #fff8da; }
+  background: #FFF8DA; }
 
 body, input, select {
   font-family: "Donegal One", serif; 
@@ -21,10 +21,7 @@ h1, #miau {
 
 #form_container {
   border: 5px dotted #ff912f;
-  width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 30px; }
+}
   
 #introduction {
   border: none;
@@ -77,7 +74,7 @@ footer {
   margin: 0 auto;
   margin-top: 50px;
   border: 0;
-  border-top: 2px solid #ff912f; }
+  border-top: 2px solid #FF912F; }
 
 #copyright_footer_note {
   font-size: 70%;
@@ -86,7 +83,7 @@ footer {
 #set_your_style {
     margin-left: 0;
     margin-right: 0;
-    margin-bottom: 20px;
+    margin-bottom: 28px;
     text-align: center;
     color: rgb(104, 48, 0);
 }
@@ -105,4 +102,81 @@ footer {
 #set_your_style li,
 #set_your_style li a {
     color: rgb(90, 72, 0);
+}
+
+#ajax_uploader hr {
+    border-top: 1px solid #FF912F;
+}
+
+#form_container.hover {
+    background-color: #F0E7C2;
+}
+
+#image_pane img {
+  border: 1px dashed #FFD891;
+}
+
+.size_row, .expires_row, .expires_row select, .share_lasagna, #percent {
+    font-size: 17px;
+}
+
+.ajax button {
+    margin-top: 10px;
+    border: 1px dashed #FFA500;
+    background: #FFE5B5;
+    font-family: "Donegal One";
+    font-size: 18px;
+    margin-left: 0;
+    padding: 3px 7px;
+    margin-right: 10px;
+}
+
+#ajax_expires_in {
+    width: 130px;
+    height: 26px;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    text-indent: 0.01px;
+    text-overflow: "";
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAXCAYAAAAC9s/ZAAAABmJLR0QA/wD/AP+gvaeTAAAAVUlEQVQ4y2P4P1H//////xnIxUwMFIKBN4Dx////Q9wLTAyTDP4PqAtYMESIcVHeBUbcLkCSJKQZfzRicwkWw5mItQmnywhmGAKZjWE0N47mRmq4AACsD6ZQLgFoPQAAAABJRU5ErkJggg==) no-repeat right, #FFFFED;
+    border: 1px dashed orange;
+}
+
+.ajax #id_expires_in::-ms-expand {
+  display: none;
+}
+.ajax button:hover {
+    background: #F0F0B9;
+}
+.ajax button:active {
+    background: #F0E9BF;
+}
+
+#progress_bar {
+    width: 341px;
+    height: 17px;
+    background: white;
+    border: 1px solid #FF912F;
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+#filled_area {
+    height: 100%;
+    background: #E7C27C;
+    border-right: 1px solid #FF912F;
+    width: 0%;
+}
+
+.ajax #lasagna_url_field {
+    font-size: 24px;
+}
+#subpage_finished {
+    width: 100%;
+}
+
+a {
+    color: #AD590D;
 }

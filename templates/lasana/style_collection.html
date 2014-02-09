@@ -1,4 +1,4 @@
-{% load i18n %}
+{% load i18n %}{% load staticfiles %}
 <section id="set_your_style" aria-hidden="true">
   <span>{% trans "Set your favorite style!" %}</span>
   <ul>
@@ -6,4 +6,9 @@
     {% include "lasana/style.html" with name="Cute" %}
     {% include "lasana/style.html" with name="Dark" %}
   </ul>
+  <script>
+var styleRoot = "{{ STATIC_URL }}/lasana/css/";
+var setStyleUrlBase = "{% url 'set-style' %}?style=";
+  </script>
+  <script src="{% static "lasana/js/styles.js" %}"></script>
 </section>

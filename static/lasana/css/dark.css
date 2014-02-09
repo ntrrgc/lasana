@@ -24,7 +24,7 @@ a:active {
   color: rgb(240, 132, 132); }
   
 
-body, input, select {
+body, input, select, button {
   font-family: "Merriweather Sans", sans-serif;
   font-size: 17px; }
 
@@ -39,17 +39,16 @@ p {
 article p {
   margin-bottom: 20px; }
 
-input, select {
+input, select, button {
   font-size: 15px; }
 
-h1, #miau {
+h1 {
   text-align: center; 
   text-shadow: 0 1px 5px white;
 }
 
 #form_container {
   border: 1px solid rgba(238, 255, 186, 0.65);
-  width: 600px;
   margin-left: auto;
   margin-right: auto;
   padding: 30px; 
@@ -136,4 +135,37 @@ footer {
 #set_your_style li,
 #set_your_style li a {
     color: rgb(255, 249, 176);
+}
+
+ {
+}
+
+footer, #ajax_uploader hr {
+    border-top: 1px solid rgba(255, 255, 186, 0.65);
+}
+
+.expires_row {
+}
+.ajax #lasagna_url_field {
+    font-size: 26px;
+}
+#filled_area {
+    background: white;
+}
+#progress_bar {
+    background: none;
+    border: 1px solid white;
+    border-radius: 4px;
+    box-shadow: 0 0 4px rgba(238, 255, 186, 0.65);
+}
+.button_bar {
+    margin-top: 10px;
+}
+.ajax #store_more {
+    margin-top: 6px;
+}
+#image_pane img {
+    border: 1px solid rgba(255, 255, 255, 0.62);
+    border-radius: 4px;
+    box-shadow: 0 0 3px rgba(238, 255, 186, 0.65);
 }

@@ -1,7 +1,7 @@
 {% load i18n %}
 {% with name|slugify as slugname %}
 <li>
-  {% if style != slugname %}<a href="{% url 'set-style' %}?style={{slugname}}">{% endif %}
+{% if style != slugname %}<a href="{% url 'set-style' %}?style={{slugname}}">{% endif %}
     {% trans name %}
   {% if style != slugname %}</a>{% endif %}
 </li>
