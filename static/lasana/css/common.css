@@ -1,0 +1,179 @@
+.tablehack {
+    display: table-cell;
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+}
+#form_container {
+  width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px; 
+  position: relative;
+}
+.no_image .box_info,
+.no_image .share_lasagna,
+.no_image .button_bar,
+.no_image .expires_row,
+.no_image #lasagna_url_field {
+    text-align: center;
+}
+
+.ajax #store_more {
+    margin-top: 0;
+}
+
+#error_explanation {
+    margin-bottom: 10px;
+}
+
+#file_hack::-webkit-file-upload-button {
+    display: none;
+}
+
+.ajax #id_expires_in::-ms-expand {
+  display: none;
+}
+
+.no_image .right_pane {
+    left: 115px;
+}
+
+#progress_bar {
+    width: 341px;
+    height: 17px;
+    background: white;
+    border: 1px solid #FF912F;
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+#filled_area {
+    height: 100%;
+    width: 0%;
+    background: black;
+}
+
+#percent {
+    display: inline-block;
+    vertical-align: middle;
+    width: 57px;
+    text-align: right;
+}
+
+#image_pane img {
+    max-height: 100%;
+    max-width: 100%;
+    image-rendering: auto;
+    margin-top: auto;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+}
+
+.box_info {
+    display: table;
+    top: 0;
+    height: 125px;
+    position: absolute;
+    width: 100%;
+}
+.box_subpage {
+    position: absolute;
+    top: 125px;
+    display: table;
+    height: 125px;
+    width: 100%;
+}
+
+.expires_row {
+    margin-top: 0;
+}
+
+#image_pane {
+    text-align: center;
+    vertical-align: middle;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 200px;
+    left: 0;
+}
+.right_pane {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 230px;
+    width: 450px;
+}
+
+#page_confirm {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+#file_name {
+    margin-bottom: 10px;
+    font-size: 21px;
+    text-overflow: ellipsis;
+    width: 100%;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#ajax_uploader {
+    height: 100%;
+    width: 100%;
+}
+
+#form_container.ajax {
+    height: 250px;
+}
+
+#select_a_file {
+    text-align: center;
+    font-size: 27px;
+    margin-top: 60px;
+}
+
+#ajax_uploader hr {
+    border-top: 1px solid #FF912F;
+    width: 350px;
+    margin-top: 30px;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+}
+#or_drag {
+    text-align: center;
+    margin-top: 23px;
+    margin-bottom: 20px;
+    line-height: 24px;
+}
+
+.ajax #classic_uploader {
+    display: none;
+}
+
+.no_ajax #ajax_uploader {
+    display: none;
+}
+
+#file_hack {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+}
