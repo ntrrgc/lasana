@@ -79,6 +79,9 @@ function initAjaxUploader() {
    fileHack.addEventListener("change", handleFileSelect);
    $id("page_select").appendChild(fileHack);
 
+   // Focus file selector so it can be opened with Return key
+   fileHack.focus();
+
    // Bind drag and drop events
    dropBox.addEventListener("dragover", function(e) {
       e.preventDefault();
