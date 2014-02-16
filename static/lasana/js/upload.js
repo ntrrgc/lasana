@@ -217,7 +217,6 @@ function startUpload() {
    xhr.error = uploadFailed;
 
    xhr.open("POST", "/api/v1/", true);
-   //xhr.open("POST", "https://lasana.rufian.eu/api/v1/", true);
    xhr.send(formData);
 }
 
