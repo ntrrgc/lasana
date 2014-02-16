@@ -80,7 +80,10 @@ function initAjaxUploader() {
    $id("page_select").appendChild(fileHack);
 
    // Focus file selector so it can be opened with Return key
-   fileHack.focus();
+   setTimeout(function() {
+      // But do it in the next turn, otherwise it does not work in Firefox
+      fileHack.focus();
+   }, 0);
 
    // Bind drag and drop events
    dropBox.addEventListener("dragover", function(e) {
