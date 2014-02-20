@@ -17,6 +17,11 @@ class MealStorage(FileSystemStorage):
 
 MEAL_ALPHABET = list(set(string.ascii_uppercase + string.digits) - {'I','1','O','0'})
 
+safe_random = random.SystemRandom()
+
+def get_random_string(length):
+    return ''.join(safe_random.choice(MEAL_ALPHABET) for x in range(4))
+
 class Meal(Model):
     id_length = 4
     id = CharField(max_length=id_length, db_index=True, primary_key=True)
@@ -29,7 +34,7 @@ class Meal(Model):
             raise "Too much meals"
 
         while True:
-            random_string = ''.join(random.choice(MEAL_ALPHABET) for x in range(4))
+            random_string = get_random_string(length=4)
             if len(Meal.objects.filter(id=random_string)) == 0:
                 self.id = random_string
                 return self.id
