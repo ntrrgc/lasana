@@ -36,7 +36,8 @@ function changeStyle(e) {
    var styles = styleList.getElementsByTagName("li");
    for (var i = 0; i < styles.length; i++) {
       var style = styles[i];
-      if (style.textContent.toLowerCase().trim() == currentStyleName) {
+      var name = style.getAttribute("data-style-name");
+      if (name == currentStyleName) {
          // This is the current style
          style.innerHTML = '<a href="' + setStyleUrl(currentStyleName) +
             '">' + style.innerHTML + '</a>';
