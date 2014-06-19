@@ -46,7 +46,7 @@ class MealCreateView(FormView):
 
         meal, url = process_meal(self.request, file, expiration_time)
 
-        return TemplateResponse(self.request, 
+        return TemplateResponse(self.request,
                                 "lasana/meal_create_success.html",
                                 context={'meal': meal,
                                          'meal_serve_absolute_url': url})
@@ -55,7 +55,7 @@ class MealCreateView(FormView):
 class MealCreateAPIView(FormView):
     template_name = "lasana/meal_form_api.html"
     form_class = MealCreateFormAPI
-    
+
     def form_valid(self, form):
         expires_in = int(form.cleaned_data['expires_in'])
         file = form.cleaned_data['file']
@@ -87,11 +87,14 @@ class MealCreateAPIView(FormView):
     @csrf_exempt
     def dispatch(self, *args, **kwargs):
         return super(MealCreateAPIView, self).dispatch(*args, **kwargs)
-    
+
 
 class MealServeView(View):
     def forbidden_user_agent(self):
-        user_agent = self.request.META['HTTP_USER_AGENT']
+        user_agent = self.request.META.get('HTTP_USER_AGENT')
+        # Do not let clients without User-Agent pass.
+        if user_agent is None:
+            return True
         return any(bot in user_agent
                    for bot in LASANA_BLOCK_CRAWLERS)
 
@@ -105,7 +108,7 @@ class MealServeView(View):
         meal_iter = Meal.objects.filter(id=kwargs['meal_id'])
         if len(meal_iter) != 1:
             return self.no_meal()
-        
+
         meal = meal_iter[0]
 
         #if meal is there, but has expired, throw it away and redirect to main page too
@@ -116,7 +119,7 @@ class MealServeView(View):
             #else, serve the meal
             file = meal_iter[0].file
             return send(request, file)
-    
+
     def no_meal(self):
         return HttpResponseRedirect(reverse('meal-create'))
 
