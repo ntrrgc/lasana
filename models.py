@@ -31,7 +31,7 @@ class Meal(Model):
     def generate_auto_id(self):
         #Theoretically, we can have up to ~1 million meals, but having 10k would be enough to worry
         if Meal.objects.count() > 10000:
-            raise "Too much meals"
+            raise RuntimeError("Too much meals")
 
         while True:
             random_string = get_random_string(length=4)
