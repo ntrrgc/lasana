@@ -8,14 +8,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-09 17:08+0100\n"
+"POT-Creation-Date: 2015-11-12 22:49+0100\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
-#: admin.py:11 forms.py:7 models.py:23
+#: admin.py:11 forms.py:7 models.py:28
 msgid "File"
 msgstr "Archivo"
 
@@ -51,11 +51,11 @@ msgstr "1 semana"
 msgid "Expires in"
 msgstr "Caduca en"
 
-#: models.py:24
+#: models.py:29
 msgid "Expiration time"
 msgstr "Fecha de caducidad"
 
-#: models.py:44
+#: models.py:49
 msgid "Meal"
 msgstr "Plato"
 
@@ -70,6 +70,10 @@ msgstr "Mono"
 #: settings.py:8
 msgid "Dark"
 msgstr "Oscuro"
+
+#: templates/lasana/base.html:6
+msgid "To upload things"
+msgstr "Para subir cosas"
 
 #: templates/lasana/copyright_footer_note.html:4
 #, python-format

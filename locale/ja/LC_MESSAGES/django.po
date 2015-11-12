@@ -8,14 +8,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-14 23:01+0100\n"
+"POT-Creation-Date: 2015-11-12 22:49+0100\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 
-#: admin.py:11 forms.py:7 models.py:22
+#: admin.py:11 forms.py:7 models.py:28
 msgid "File"
 msgstr "ファイル"
 
@@ -36,38 +36,123 @@ msgid "3 hours"
 msgstr "三時間"
 
 #: forms.py:13
+#, fuzzy
+#| msgid "3 hours"
+msgid "6 hours"
+msgstr "三時間"
+
+#: forms.py:14
 msgid "1 day"
 msgstr "一日"
 
-#: forms.py:14
+#: forms.py:15
 msgid "1 week"
 msgstr "一週間"
 
-#: forms.py:15
+#: forms.py:16
 msgid "Expires in"
 msgstr "切れるに"
 
-#: models.py:23
+#: models.py:29
 msgid "Expiration time"
 msgstr "切れる時間"
 
-#: models.py:43
+#: models.py:49
 msgid "Meal"
 msgstr "飯"
+
+#: settings.py:6
+msgid "Original"
+msgstr ""
+
+#: settings.py:7
+msgid "Cute"
+msgstr ""
+
+#: settings.py:8
+msgid "Dark"
+msgstr ""
+
+#: templates/lasana/base.html:6
+msgid "To upload things"
+msgstr ""
 
 #: templates/lasana/copyright_footer_note.html:4
 #, python-format
 msgid "Redefine <em>'%(template_path)s'</em> to edit this note."
 msgstr "メモを出版するために<em>'%(template_path)s'</em>を書き直せ下さい"
 
-#: templates/lasana/meal_create_success.html:5
+#: templates/lasana/introduction_note.html:2
+#, python-format
+msgid "%(lasana_name)s is a temporary file hosting service."
+msgstr ""
+
+#: templates/lasana/introduction_note.html:3
+#, python-format
+msgid ""
+"%(lasana_name)s aims at minimal user intrusion: we don't want you to need "
+"more than one click for uploading or downloading a file."
+msgstr ""
+
+#: templates/lasana/introduction_note.html:4
+#, python-format
+msgid ""
+"%(lasana_name)s keeps your files private: your files can only be downloaded "
+"by those who receive the links."
+msgstr ""
+
+#: templates/lasana/meal_create_success.html:6
+#: templates/lasana/meal_form.html:65
 msgid "Share this lasagna"
 msgstr "ラザ二ア"
 
-#: templates/lasana/meal_create_success.html:17
+#: templates/lasana/meal_create_success.html:18
+#: templates/lasana/meal_form.html:68
 msgid "Store more"
 msgstr "もっと保管する"
 
-#: templates/lasana/meal_form.html:15
-msgid "Put in the fridge"
+#: templates/lasana/meal_form.html:17 templates/lasana/meal_form.html.py:51
+#, fuzzy
+#| msgid "Put in the fridge"
+msgid "Put in the oven"
 msgstr "冷蔵庫に入れる"
+
+#: templates/lasana/meal_form.html:21
+msgid "Select a file"
+msgstr ""
+
+#: templates/lasana/meal_form.html:24
+msgid "or drop it from the desktop."
+msgstr ""
+
+#: templates/lasana/meal_form.html:25
+msgid "You can also paste images with Ctrl+V."
+msgstr ""
+
+#: templates/lasana/meal_form.html:35
+msgid "Size"
+msgstr ""
+
+#: templates/lasana/meal_form.html:52
+msgid "Go back"
+msgstr ""
+
+#: templates/lasana/meal_form.html:61
+msgid "Cancel upload"
+msgstr ""
+
+#: templates/lasana/meal_form.html:73
+msgid "There was an error with the upload."
+msgstr ""
+
+#: templates/lasana/meal_form.html:76
+msgid "Retry"
+msgstr ""
+
+#: templates/lasana/meal_form.html:86
+msgid "Due to technical limitations, you can't paste images from this browser."
+msgstr ""
+
+#: templates/lasana/style_collection.html:3
+msgid "Set your favorite style!"
+msgstr ""
