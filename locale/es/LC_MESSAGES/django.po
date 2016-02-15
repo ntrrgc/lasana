@@ -72,7 +72,7 @@ msgid "Dark"
 msgstr "Oscuro"
 
 #: templates/lasana/base.html:6
-msgid "To upload things"
+msgid "For uploading things"
 msgstr "Para subir cosas"
 
 #: templates/lasana/copyright_footer_note.html:4
