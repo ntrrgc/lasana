@@ -105,7 +105,7 @@ class MealServeView(View):
             return response
 
         #if there is no such meal, redirect to main page
-        meal_iter = Meal.objects.filter(id=kwargs['meal_id'])
+        meal_iter = Meal.objects.filter(id=kwargs['meal_id'].upper())
         if len(meal_iter) != 1:
             return self.no_meal()
 
