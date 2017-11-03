@@ -26,7 +26,7 @@ function $id(id) {
       return element;
    } else {
       throw "no element with id \"" + id + "\"";
-   } 
+   }
 }
 
 // Global variables
@@ -288,7 +288,7 @@ function pad(number, positions) {
 
 function defaultName(type) {
    var date = new Date();
-   var dateStr = date.getFullYear() + "-" + 
+   var dateStr = date.getFullYear() + "-" +
                   pad(date.getMonth() + 1, 2) + "-" +
                   pad(date.getDate(), 2) + "-" +
                   pad(date.getHours(), 2) + "-" +
@@ -317,15 +317,18 @@ function pasteHandler(e) {
    }
    if (file) {
       disableCeHack = true;
-      file.name = file.name || defaultName(file.type);
+      var hasFileName = file.name && file.name.indexOf("image.") != 0;
+      file = new File(file, hasFileName ? file.name : defaultName(file.type), {
+            type: file.type
+      });
       confirmFile(file);
    }
 }
 
 // http://stackoverflow.com/a/14930686/1777162
 function dataURItoBlob(dataURI) {
-   var byteString, 
-       mimestring 
+   var byteString,
+       mimestring
 
    if(dataURI.split(',')[0].indexOf('base64') !== -1 ) {
        byteString = atob(dataURI.split(',')[1])
