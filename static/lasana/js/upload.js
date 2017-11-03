@@ -318,7 +318,7 @@ function pasteHandler(e) {
    if (file) {
       disableCeHack = true;
       var hasFileName = file.name && file.name.indexOf("image.") != 0;
-      file = new File(file, hasFileName ? file.name : defaultName(file.type), {
+      file = new File([file], hasFileName ? file.name : defaultName(file.type), {
             type: file.type
       });
       confirmFile(file);
